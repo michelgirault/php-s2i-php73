@@ -32,6 +32,7 @@ fi
 
 mkdir -p ${HTTPD_CONFIGURATION_PATH}
 chmod +x /usr/libexec/s2i/usage
+chmod +x /usr/libexec/s2i/assemble
 chmod -R a+rwx ${HTTPD_MAIN_CONF_PATH}
 chmod -R a+rwx ${HTTPD_MAIN_CONF_D_PATH}
 chmod -R ug+r   /etc/pki/tls/certs/localhost.crt
