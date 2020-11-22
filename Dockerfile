@@ -70,6 +70,8 @@ COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 # Copy extra files to the image.
 COPY ./root/ /
 
+#fix permission 
+RUN chmod +x /usr/libexec/container-setup
 # Reset permissions of filesystem to default values
 RUN /usr/libexec/container-setup && rpm-file-permissions
 
