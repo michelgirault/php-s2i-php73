@@ -74,6 +74,8 @@ COPY ./root/ /
 RUN chmod +x /usr/libexec/container-setup
 RUN chmod +x /usr/libexec/s2i/usage
 RUN chmod +x /usr/libexec/s2i/assemble
+RUN chmod +x /usr/libexec/s2i/save-artifacts
+RUN chmod +x /usr/libexec/s2i/run
 # Reset permissions of filesystem to default values
 RUN /usr/libexec/container-setup && rpm-file-permissions
 
