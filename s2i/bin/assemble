@@ -31,7 +31,7 @@ if [ -f composer.json ]; then
     fi
 
     echo "Downloading $COMPOSER_INSTALLER, attempt $((i+1))/$RETRIES"
-   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.16  && break 
+   curl -sS https://getcomposer.org/installer | php -- --install-dir=$TEMPFILE --filename=composer --version=1.10.16  && break 
     sleep 10
   done
   if [[ $i == $RETRIES ]]; then
