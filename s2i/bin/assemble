@@ -47,11 +47,11 @@ if [ -f composer.json ]; then
 
   # Change the repo mirror if provided
   if [ -n "$COMPOSER_MIRROR" ]; then
-    ./composer.phar config -g repositories.packagist composer $COMPOSER_MIRROR
+    /tmp/composer config -g repositories.packagist composer $COMPOSER_MIRROR
   fi
 
   # Install App dependencies using Composer
-  ./composer.phar install --no-interaction --no-ansi --optimize-autoloader $COMPOSER_ARGS
+  /tmp/composer install --no-interaction --no-ansi --optimize-autoloader $COMPOSER_ARGS
 
   if [ ! -f composer.lock ]; then
     echo -e "\nConsider adding a 'composer.lock' file into your source repository.\n"
