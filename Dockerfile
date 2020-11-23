@@ -76,6 +76,7 @@ RUN chmod +x /usr/libexec/container-setup
 RUN /usr/libexec/container-setup && rpm-file-permissions
 
 USER 1001
-
+RUN chmod +x /usr/libexec/s2i/usage
+RUN chmod +x /usr/libexec/s2i/assemble
 # Set the default CMD to print the usage of the language image
 CMD $STI_SCRIPTS_PATH/usage
