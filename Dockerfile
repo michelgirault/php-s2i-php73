@@ -66,7 +66,8 @@ ENV PHP_CONTAINER_SCRIPTS_PATH=/usr/share/container-scripts/php/ \
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
-
+RUN chmod +x /usr/libexec/s2i/usage
+RUN chmod +x /usr/libexec/s2i/assemble
 # Copy extra files to the image.
 COPY ./root/ /
 
@@ -76,7 +77,6 @@ RUN chmod +x /usr/libexec/container-setup
 RUN /usr/libexec/container-setup && rpm-file-permissions
 
 USER 1001
-RUN chmod +x /usr/libexec/s2i/usage
-RUN chmod +x /usr/libexec/s2i/assemble
+
 # Set the default CMD to print the usage of the language image
 CMD $STI_SCRIPTS_PATH/usage
