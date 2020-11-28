@@ -39,7 +39,8 @@ LABEL summary="${SUMMARY}" \
       help="For more information visit https://github.com/sclorg/s2i-${NAME}-container" \
       usage="s2i build https://github.com/sclorg/s2i-php-container.git --context-dir=${PHP_VERSION}/test/test-app centos/${NAME}-${PHP_VER_SHORT}-centos7 sample-server" \
       maintainer="SoftwareCollections.org <sclorg@redhat.com>"
-
+#install cron
+RUN yum install -y cronie
 # Install Apache httpd and PHP
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="rh-php73 rh-php73-php rh-php73-php-mysqlnd rh-php73-php-pgsql rh-php73-php-bcmath \
