@@ -39,6 +39,8 @@ LABEL summary="${SUMMARY}" \
       help="For more information visit https://github.com/sclorg/s2i-${NAME}-container" \
       usage="s2i build https://github.com/sclorg/s2i-php-container.git --context-dir=${PHP_VERSION}/test/test-app centos/${NAME}-${PHP_VER_SHORT}-centos7 sample-server" \
       maintainer="SoftwareCollections.org <sclorg@redhat.com>"
+#install nano editor
+RUN yum install -y nano
 #install cron
 RUN yum install -y cronie
 # Install Apache httpd and PHP
