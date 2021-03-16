@@ -45,7 +45,7 @@ RUN yum install -y nano
 RUN yum install -y cronie
 # Install Apache httpd and PHP
 RUN yum install -y centos-release-scl && \
-    INSTALL_PKGS="rh-php73 rh-php73-php rh-php73-php-sodium rh-php73-php-mysqlnd rh-php73-php-pgsql rh-php73-php-bcmath \
+    INSTALL_PKGS="rh-php73 rh-php73-php sclo-php73-php-sodium rh-php73-php-mysqlnd rh-php73-php-pgsql rh-php73-php-bcmath \
                   rh-php73-php-gd rh-php73-php-intl rh-php73-php-ldap rh-php73-php-mbstring rh-php73-php-pdo \
                   rh-php73-php-process rh-php73-php-soap rh-php73-php-opcache rh-php73-php-xml \
                   rh-php73-php-gmp rh-php73-php-pecl-apcu httpd24-mod_ssl" && \
