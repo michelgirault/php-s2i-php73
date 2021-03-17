@@ -44,7 +44,6 @@ RUN yum install -y nano
 #install cron
 RUN yum install -y cronie
 # Install Apache httpd and PHP
-RUN pecl install libsodium-2.0.21
 RUN yum install -y rh-php73-php-pear
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="rh-php73 rh-php73-php sclo-php73-php-sodium rh-php73-php-mysqlnd rh-php73-php-pgsql rh-php73-php-bcmath \
@@ -68,7 +67,7 @@ ENV PHP_CONTAINER_SCRIPTS_PATH=/usr/share/container-scripts/php/ \
     HTTPD_DATA_ORIG_PATH=/opt/rh/httpd24/root/var/www \
     HTTPD_VAR_PATH=/opt/rh/httpd24/root/var \
     SCL_ENABLED=rh-php73
-
+RUN pecl install libsodium-2.0.21
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
