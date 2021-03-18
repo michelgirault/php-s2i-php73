@@ -54,7 +54,7 @@ RUN yum install -y centos-release-scl && \
     rpm -V $INSTALL_PKGS && \
     yum -y clean all --enablerepo='*'
 RUN yum install -y rh-php73-php-devel
-RUN yum install -y php-pecl-libsodium
+RUN yum install -y rh-php73-php-pecl-libsodium
 RUN yum install -y epel-release
 RUN yum install -y libsodium libsodium-devel
 RUN curl http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/r/re2c-0.14.3-2.el7.x86_64.rpm --output re2c-0.14.3-2.el7.x86_64.rpm
