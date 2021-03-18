@@ -49,11 +49,10 @@ RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="rh-php73 rh-php73-php rh-php73-php-mysqlnd rh-php73-php-pgsql rh-php73-php-bcmath \
                   rh-php73-php-gd rh-php73-php-intl rh-php73-php-ldap rh-php73-php-mbstring rh-php73-php-pdo \
                   rh-php73-php-process rh-php73-php-soap rh-php73-php-opcache rh-php73-php-xml \
-                  rh-php73-php-gmp rh-php73-php-pecl-apcu httpd24-mod_ssl" && \
+                  rh-php73-php-gmp rh-php73-php-pecl-apcu rh-php73-php-devel httpd24-mod_ssl" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS --nogpgcheck && \
     rpm -V $INSTALL_PKGS && \
     yum -y clean all --enablerepo='*'
-RUN yum install -y rh-php73-php-devel
 RUN yum install -y epel-release
 RUN yum install -y libsodium libsodium-devel
 RUN yum install -y php-pecl-libsodium
@@ -72,6 +71,9 @@ ENV PHP_CONTAINER_SCRIPTS_PATH=/usr/share/container-scripts/php/ \
     HTTPD_DATA_ORIG_PATH=/opt/rh/httpd24/root/var/www \
     HTTPD_VAR_PATH=/opt/rh/httpd24/root/var \
     SCL_ENABLED=rh-php73
+#install libsodium
+RUN pecl install libsodium
+RUN echo "extension=libsodium.so" >> /etc/php.ini
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
