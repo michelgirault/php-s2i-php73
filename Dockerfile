@@ -43,6 +43,7 @@ LABEL summary="${SUMMARY}" \
 RUN yum install -y nano
 #install cron
 RUN yum install -y cronie
+RUN yum install -y libc-client
 # Install Apache httpd and PHP
 RUN yum install -y rh-php73-php-pear rh-php73-php-devel
 RUN yum install -y centos-release-scl && \
