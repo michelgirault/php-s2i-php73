@@ -47,7 +47,7 @@ RUN yum install -y cronie
 RUN yum install -y rh-php73-php-pear rh-php73-php-devel
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="rh-php73 rh-php73-php rh-php73-php-mysqlnd rh-php73-php-pgsql rh-php73-php-bcmath \
-                  rh-php73-php-gd rh-php73-php-intl rh-php73-php-ldap rh-php73-php-mbstring rh-php73-php-ext-imap rh-php73-php-pdo \
+                  rh-php73-php-gd rh-php73-php-intl rh-php73-php-ldap rh-php73-php-mbstring rh-php73-php-imap rh-php73-php-pdo \
                   rh-php73-php-process rh-php73-php-soap rh-php73-php-opcache rh-php73-php-xml \
                   rh-php73-php-gmp rh-php73-php-pecl-apcu rh-php73-php-devel httpd24-mod_ssl" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS --nogpgcheck && \
