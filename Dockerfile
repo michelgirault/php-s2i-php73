@@ -43,6 +43,7 @@ LABEL summary="${SUMMARY}" \
 RUN yum install -y nano
 #install cron
 RUN yum install -y cronie
+RUN yum install -y https://www.rpmfind.net/linux/epel/7/x86_64/Packages/l/libc-client-2007f-16.el7.x86_64.rpm
 # Install Apache httpd and PHP
 RUN yum install -y rh-php73-php-pear rh-php73-php-devel
 RUN yum install -y centos-release-scl && \
@@ -55,7 +56,6 @@ RUN yum install -y centos-release-scl && \
     yum -y clean all --enablerepo='*'
 RUN yum install -y epel-release
 RUN yum install -y libsodium libsodium-devel
-RUN yum install -y https://www.rpmfind.net/linux/epel/7/x86_64/Packages/l/libc-client-2007f-16.el7.x86_64.rpm
 RUN yum install -y php-pecl-libsodium
 RUN curl http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/r/re2c-0.14.3-2.el7.x86_64.rpm --output re2c-0.14.3-2.el7.x86_64.rpm
 RUN rpm -Uvh re2c-0.14.3-2.el7.x86_64.rpm
